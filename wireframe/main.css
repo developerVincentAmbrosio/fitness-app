@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+}
+
+h1, h2, legend, label, button, nav {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: black;
+    font-size: 56px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+legend {
+    font-size: 28px;
+}
+
+label {
+    text-align: left;
+    font-size: 28px;
+}
+
+button, nav {
+    color: #fff;
+    font-size: 28px;
+    background-color: black;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.heading {
+    background-color: black;
+}
+
+hr {
+    border-width: 0;
+}
+
+section {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #757575;
+    align-items: center;
+    align-content: center;
+}
+
+form {
+    margin-top: 10px;
+    text-align: center;
+}
