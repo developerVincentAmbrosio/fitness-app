@@ -2,26 +2,43 @@ import React, { useRef, useState } from 'react';
 
 const Stopwatch = () => {
     const [runtime, setRuntime] = useState(0);
-    const [status, setStatus] = useState(false);
+    const [isRunning, setIsRunning] = useState(false);
+//    const [isPaused, setIsPaused] = useState(false);
     const runRef = useRef(null);
 
-    const handleTimer = e => {
-        setStatus(true)
+    const handleStartTimer = () => {
+        setIsRunning(true)
         runRef.current = setInterval(() => {
             setRuntime((runtime) => runtime + 1)
         }, 1000)
     };
 
-    const handleResetTimer = e => {
-        clearInterval();
-        this.setState({runtime: 0, status: false });
+    const handlePauseTimer = () => {
+        clearInterval(runRef.current)
+        setIsRunning(false)
     };
 
+    const handleResetTimer = () => {
+        clearInterval(runRef.current)
+        setIsRunning(false)
+       // setIsPaused(false)
+        setRuntime(0)
+    };
+
+    const formatTimer = () => {
+        const getSeconds = `0${(runtime % 60)}`.slice(-2)
+        const minutes = `${Math.floor(runtime / 60)}`
+        const getMinutes = `0${minutes % 60}`.slice(-2)
+        const getHours = `0${Math.floor(runtime / 3600)}`.slice(-2)
+
+        return `${getHours} : ${getMinutes} : ${getSeconds}`
+    };
+    
     return(
         <>
-            <h2>{runtime}</h2>
-            <button onClick={handleTimer}>{status ? 'Stop' : 'Start'}</button>
-            <button onClick={handleResetTimer}>Reset</button>
+            <h2>{formatTimer}</h2>
+            <button onClick={!isRunning ? handleStartTimer : handlePauseTimer}>{isRunning ? 'Stop' : 'Start'}</button>
+            <button onClick={handleResetTimer} disabled={!isRunning}>Reset</button>
         </>
     );
 }
