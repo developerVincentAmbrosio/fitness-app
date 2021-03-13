@@ -1,12 +1,24 @@
 import React from 'react';
+import Moment from 'react-moment';
+import Stopwatch from './Stopwatch';
 import Nav from './Nav';
 
+
 class Tracker extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentDate: Date().toLocaleString(),
+            status: false,
+            runtime: 0,
+        };
+    }
     render() {
         return (
             <body>
                 <heading>
-                    <h2>Date and duration of workout</h2>
+                    <h2><Moment format="M/D/YY">{ this.state.currentDate }</Moment></h2>
+                    <Stopwatch />
                 </heading>
                 <form>
                     <label for="Exercise">Exercise:</label>
@@ -28,7 +40,6 @@ class Tracker extends React.Component{
                 </form>
                 <hr/>
                 <secton>
-                    <button>Start rest timer</button>
                     <button>Finish workout</button>
                 </secton>
                 <nav>

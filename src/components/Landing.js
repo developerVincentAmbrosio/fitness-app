@@ -10,7 +10,7 @@ function Landing() {
             <main>
                 <h2>An app that tracks your workouts, sets, reps and notes</h2>
                 <Link to='/tracker'>
-                    Start crushing it!
+                    <button>Start crushing it!</button>
                 </Link>
             </main>
         </body>
