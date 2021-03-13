@@ -9,8 +9,9 @@ class Tracker extends React.Component{
         super(props);
         this.state = {
             currentDate: Date().toLocaleString(),
-            status: false,
             runtime: 0,
+            isRunning: false,
+            isPaused: false,
         };
     }
     render() {
