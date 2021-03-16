@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 const Stopwatch = (props) => {
-    const [stopwatch, setStopwatch] = useState({ms:0, s:55, m:59, h:0}); 
+    const [stopwatch, setStopwatch] = useState({ms:0, s:0, m:0, h:0}); 
     const [interv, setInterv] = useState();
     const [status, setStatus] = useState(0);
     const [isActive, setIsActive] = useState(false);
@@ -48,14 +48,14 @@ const Stopwatch = (props) => {
         if (stopwatch.h === 0) {
             return '';
         } else {
-        return <span>{(stopwatch.h >= 10) ? stopwatch.h : '0'+ stopwatch.h + '&nbsp;:&nbsp;'}</span>
+        return <span>{(stopwatch.h >= 10) ? stopwatch.h : '0'+ stopwatch.h}</span>
         }
     }
 
     return(
         <>
-            {displayHours}
-            <span>{(stopwatch.h >= 10) ? stopwatch.h : '0'+ stopwatch.h}</span>&nbsp;:&nbsp;
+            {displayHours()}&nbsp;&nbsp;
+            {/* <span>{(stopwatch.h >= 10) ? stopwatch.h : '0'+ stopwatch.h}</span>&nbsp;:&nbsp; */}
             <span>{(stopwatch.m >= 10) ? stopwatch.m : '0'+ stopwatch.m}</span>&nbsp;:&nbsp;
             <span>{(stopwatch.s >= 10) ? stopwatch.s : '0'+ stopwatch.s}</span>&nbsp;:&nbsp;
             <span>{(stopwatch.ms >= 10) ? stopwatch.ms : '0'+ stopwatch.ms}</span><br/>
