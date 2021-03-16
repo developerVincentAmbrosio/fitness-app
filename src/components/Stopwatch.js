@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const Stopwatch = (props) => {
+const Stopwatch = () => {
     const [stopwatch, setStopwatch] = useState({ms:0, s:0, m:0, h:0}); 
     const [interv, setInterv] = useState();
     const [status, setStatus] = useState(0);
@@ -55,12 +55,11 @@ const Stopwatch = (props) => {
     return(
         <>
             {displayHours()}&nbsp;&nbsp;
-            {/* <span>{(stopwatch.h >= 10) ? stopwatch.h : '0'+ stopwatch.h}</span>&nbsp;:&nbsp; */}
             <span>{(stopwatch.m >= 10) ? stopwatch.m : '0'+ stopwatch.m}</span>&nbsp;:&nbsp;
             <span>{(stopwatch.s >= 10) ? stopwatch.s : '0'+ stopwatch.s}</span>&nbsp;:&nbsp;
             <span>{(stopwatch.ms >= 10) ? stopwatch.ms : '0'+ stopwatch.ms}</span><br/>
             <button 
-            onClick={!isActive ? startStopwatch : pauseStopwatch}>{isActive ? 'Stop' : 'Start'}
+            onClick={!isActive ? startStopwatch : pauseStopwatch}>{!isActive ? 'Start' : 'Stop'}
             </button>
             <button
                 onClick={resetStopwatch}>Reset
