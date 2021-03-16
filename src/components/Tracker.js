@@ -1,26 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Moment from 'react-moment';
 import Stopwatch from './Stopwatch';
 import Nav from './Nav';
 
 
-class Tracker extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-            currentDate: Date().toLocaleString(),
-            stopwatchTime: [],
-            stopwatchSeconds: 0,
-            stopwatchMinutes: 0,
-            stopwatchHours: 0,
-            isRunning: false,
-        };
-    }
-    render() {
+const Tracker = () => {
+
+    const [currentDate] = useState(Date().toLocaleString());
+    
         return (
             <body>
                 <heading>
-                    <h2><Moment format="M/D/YY">{ this.state.currentDate }</Moment></h2>
+                    <h2><Moment format="M/D/YY">{currentDate}</Moment></h2>
                     <Stopwatch />
                 </heading>
                 <form>
@@ -50,7 +41,6 @@ class Tracker extends React.Component{
                 </nav>
             </body>
         );
-    }
 }
 
 export default Tracker;
