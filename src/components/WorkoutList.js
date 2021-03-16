@@ -1,15 +1,16 @@
-import React, {useState, useRef } from 'react';
+import React from 'react';
+import Exercise from './Exercise';
 
 const WorkoutList = (props) => {
-    const exercises = props.itmes.map((item, i) => (
-        <ListItem
-         key={id}
-         name={item}
+    const exercises = props.exercises.map((exercise, i) => (
+        <Exercise
+         key={i}
+         name={exercise}
         />
     ))
     return (
         <ul>
-            {items}
+            {exercises}
         </ul>
     );
 }

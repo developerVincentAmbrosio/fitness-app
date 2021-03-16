@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
 import Moment from 'react-moment';
 import Stopwatch from './Stopwatch';
-import Accordion from './Accordion';
+import WorkoutList from './WorkoutList';
+import UserInput from './UserInput';
 import Nav from './Nav';
 
 
 const Tracker = () => {
-
     const [currentDate] = useState(Date().toLocaleString());
+    const [exercises, setExercises] = useState(['bench press']);
+
     
         return (
             <body>
@@ -17,7 +19,11 @@ const Tracker = () => {
                 </heading>
                 <br/>
                 <secton>
-                    <Accordion />
+                    <WorkoutList exercises={exercises} />
+                    <UserInput handleSubmit={(exercise) => {
+                        setExercises(exercises.concat(exercise));
+                        }}
+                    />
                     <button>Finish workout</button>
                 </secton>
                 <nav>
