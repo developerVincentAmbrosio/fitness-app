@@ -3,15 +3,17 @@ import Exercise from './Exercise';
 
 const Workout = (props) => {
 
-    const exercises = props.exercises.map((exercise, i) => (
-        <Exercise
-         key={i}
-         name={exercise}
-        />
-    ))
+    // const exercises = props.exercises.map((exercise, i) => (
+    //     <Exercise
+    //      key={i}
+    //      name={exercise}
+    //     />
+    // ))
+
     return (
         <ul>
-            <li>{exercises}</li>
+            <li>exercise</li>
+            {/* <li>{exercises}</li> */}
         </ul>
     );
 }
