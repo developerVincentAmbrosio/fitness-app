@@ -1,28 +1,20 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Heading from './Heading';
-import WorkoutList from './WorkoutList';
-import UserInput from './UserInput';
+import Workout from './Workout';
 import Nav from './Nav';
 
-
 const Tracker = () => {
-    const [exercises, setExercises] = useState(['bench press']);
 
         return (
             <body>
                 <Heading />
-                <secton>
-                    <WorkoutList exercises={exercises} />
-                    <UserInput handleSubmit={(exercise) => {
-                        setExercises(exercises.concat(exercise));
-                        }}
-                    />
-                    <Link to='/finish'>
+                <Workout />
+
+                <Link to='/finish'>
                     <button>Finish workout</button>
                 </Link>
-                </secton>
                 <nav>
                     <Nav />
                 </nav>
