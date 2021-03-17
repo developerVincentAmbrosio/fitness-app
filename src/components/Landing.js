@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Landing() {
+const Landing = () => {
     return (
         <body>
             <heading>
