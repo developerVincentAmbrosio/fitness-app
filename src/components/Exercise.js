@@ -1,7 +1,25 @@
 import React, {useState} from 'react';
 
-const Exercise = () => {
-    const [value, setValue] = useState('');
+const Exercise = (props) => {
+    // const [value, setValue] = useState('');
+    // const [pounds, setPounds] = useState('');
+    // const [kilograms, setKilgrams] = useState('');
+    // const [weight, setWeight] = useState ('');
+
+    // const handleScale = () => {
+
+    // }
+
+    // const weightConversion = (weight) => {
+    //     if (scale == 'lbs') {
+    //         weight / 2.205
+    //     } else {
+    //         weight * 2.205
+    //     }
+    //     Math.floor
+    // };
+
+
 
     return(
         <form>
@@ -9,10 +27,10 @@ const Exercise = () => {
             <input type="text" name="Exercise" value="" /><br/>
 
             <label for="Previous">Previous:</label>
-            <input type="text" name="Previous" value="Previous" /><br/>
+            <input type="text" name="Previous" value="Previous" /> {props.Imperial ? 'lbs' : 'Kilos'}<br/>
 
             <label for="Weight">Weight:</label>
-            <input type="text" name="Weight" value="" /><br/>
+            <input type="text" name="Weight" value="" /> {props.Imperial ? 'lbs' : 'Kilos'}<br/>
 
             <label for="Set">Set:</label>
             <input type="text" name="Set" value="" /><br/>
