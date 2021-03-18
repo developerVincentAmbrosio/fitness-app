@@ -1,7 +1,15 @@
 import React, {useState} from 'react';
 
 const Exercise = (props) => {
-    // const [value, setValue] = useState('');
+    const [userInput, setUserInput] = useState('');
+
+    const setsWheel = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+    const repsWheel = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+                       '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
+    
+    const [selectSets, setSelectSets] = useState(0);
+    const [selectReps, setSelectReps] = useState(0);
+     
     // const [pounds, setPounds] = useState('');
     // const [kilograms, setKilgrams] = useState('');
     // const [weight, setWeight] = useState ('');
@@ -10,33 +18,28 @@ const Exercise = (props) => {
 
     // }
 
-    // const weightConversion = (weight) => {
-    //     if (scale == 'lbs') {
-    //         weight / 2.205
-    //     } else {
-    //         weight * 2.205
-    //     }
-    //     Math.floor
-    // };
 
-
+    const handleUserInput = event => {
+        setUserInput(event.target.value)
+    };
 
     return(
         <form>
             <label for="Exercise">Exercise:</label>
-            <input type="text" name="Exercise" value="" /><br/>
+            <input type="text" name="Exercise" value={userInput} onChange={handleUserInput} /><br/>
 
             <label for="Previous">Previous:</label>
-            <input type="text" name="Previous" value="Previous" /> {props.Imperial ? 'lbs' : 'Kilos'}<br/>
+            <input type="text" name="Previous" value="Prev" /> <br/>
 
             <label for="Weight">Weight:</label>
-            <input type="text" name="Weight" value="" /> {props.Imperial ? 'lbs' : 'Kilos'}<br/>
+            <input type="text" name="Weight" value={userInput} onChange={handleUserInput} /> <br/>
 
             <label for="Set">Set:</label>
-            <input type="text" name="Set" value="" /><br/>
+            
+            <br/>
 
             <label for="Reps">Reps:</label>
-            <input type="text" name="Reps" value="" /><br/>
+            <input type="text" name="Reps" value={userInput} onChange={handleUserInput} /><br/>
         </form>
     );
 }

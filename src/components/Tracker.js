@@ -3,19 +3,20 @@ import { Link } from 'react-router-dom';
 
 import Heading from './Heading';
 import Exercise from './Exercise';
+import Dropdown from './Dropdown';
 import Workout from './Workout';
 import Nav from './Nav';
 
 const Tracker = () => {
     const [startWorkout, setStartWorkout] = useState(false);
-    const [Imperial, setImperial] = useState(true);
+    const [imperial, setImperial] = useState(true);
 
     const handleAddExercise = () => {
         setStartWorkout(true)
     };
 
-    const lbsToKilos = () => {
-        if (Imperial === true) {
+    const handleLbsToKilos = () => {
+        if (imperial === true) {
             setImperial(false)
         } else {
             setImperial(true)
@@ -25,7 +26,7 @@ const Tracker = () => {
     // var weightUsed = '';
 
     // const handleWeightConversion = (value) => {
-    //     if (Imperial === true) {
+    //     if (imperial === true) {
     //         weightUsed = value / 2.205
     //     } else {
     //         weightUsed = value * 2.205
@@ -43,14 +44,15 @@ const Tracker = () => {
                 </button>
 
                 <button
-                    onClick={lbsToKilos}>
-                    {Imperial ? 'Pounds' : 'Kilos' }
+                    onClick={handleLbsToKilos}>
+                    {imperial ? 'Pounds' : 'Kilos' }
                 </button>
 
                 
-                {startWorkout ? <Exercise /> : ''}
+                <Exercise onChange={handleLbsToKilos} />
                 <button>Add another set</button>
                 <br/>
+                <Dropdown />
 
                 <Link to='/finish'>
                     <button>Finish workout</button>
