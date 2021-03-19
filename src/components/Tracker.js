@@ -48,11 +48,8 @@ const Tracker = () => {
                     {imperial ? 'Pounds' : 'Kilos' }
                 </button>
 
-                
                 <Exercise onChange={handleLbsToKilos} />
-                <button>Add another set</button>
                 <br/>
-                <Dropdown />
 
                 <Link to='/finish'>
                     <button>Finish workout</button>

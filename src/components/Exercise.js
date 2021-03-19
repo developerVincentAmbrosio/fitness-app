@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Dropdown from './Dropdown';
 
 const Exercise = (props) => {
     const [userInput, setUserInput] = useState('');
@@ -23,23 +24,20 @@ const Exercise = (props) => {
         setUserInput(event.target.value)
     };
 
+    const handleDropdown = () => {
+        return <Dropdown />
+    };
+
     return(
         <form>
             <label for="Exercise">Exercise:</label>
-            <input type="text" name="Exercise" value={userInput} onChange={handleUserInput} /><br/>
+            <input type="text" name="Exercise" value={userInput} onChange={handleUserInput} />
 
             <label for="Previous">Previous:</label>
-            <input type="text" name="Previous" value="Prev" /> <br/>
-
-            <label for="Weight">Weight:</label>
-            <input type="text" name="Weight" value={userInput} onChange={handleUserInput} /> <br/>
-
-            <label for="Set">Set:</label>
-            
-            <br/>
-
-            <label for="Reps">Reps:</label>
-            <input type="text" name="Reps" value={userInput} onChange={handleUserInput} /><br/>
+            <input type="text" name="Previous" value="Prev" /><br/>
+            <Dropdown />
+            <button onClick={handleDropdown}>Add set</button>
+            <button onClick={handleDropdown}> Add reps</button>
         </form>
     );
 }

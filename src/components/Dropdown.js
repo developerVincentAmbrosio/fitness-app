@@ -10,7 +10,7 @@ const Dropdown = () => {
     const activateDropDown = () => setIsActive(!isActive);
 
     let Numbers = [];
-    for(let i = 1; i < 21; i++) {
+    for(let i = 1; i < 5; i++) {
         Numbers.push(i);
     }
 
