@@ -1,31 +1,28 @@
 import React, {useState} from 'react';
-import Dropdown from './Dropdown';
+import ExerciseInput from './ExerciseInput';
+//import Dropdown from './Dropdown';
 
 const ExerciseItem = props => {
-    const [items] = useState(['1','2','3','4']); //for dropdown
+//    const [items] = useState(['1','2','3','4']); //for dropdown
     const [sets, setSets] = useState('');
     const [reps, setReps] = useState('');
     const [previousWeight, setPreviousWeight] = useState('');
     const [weight, setWeight] = useState('');
 
     return(
-        <>
             <li 
                 onClick={()=> props.handleClick(props.name)}>
                 {props.name}
                 <p>Weight used:</p>
-                {/* <form onSubmit={event => {
-                    event.preventDefault()
-                    props.handleSubmit(weight)
-                    setWeight('');
-                }}>
-                </form>  */}
+                <ExerciseInput 
+                    handleSubmit = {(weight) => {
+                    setWeight();
+                }} />
             </li>
-            
-            <Dropdown title="reps" items={items}/>
-            <Dropdown title="sets " items={items}/>
-        </>    
     );
 }
 
 export default ExerciseItem;
+
+            {/* <Dropdown title="reps" items={items}/>
+            <Dropdown title="sets " items={items}/> */}  

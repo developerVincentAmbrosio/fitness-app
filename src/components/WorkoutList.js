@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ExerciseItem from './ExerciseItem';
 
 const WorkoutList = props => {
+
     const exercises = props.exercises.map((exercise, i) => (
         <ExerciseItem
             key={i}
             name={exercise}
-            handleClick={props.handleClick}
+            // handleClick={props.handleClick}
         />
     ))
 
     return(
         <ol>
-            <li>{exercises}</li>
+            <li>{exercises}
+                
+            </li>
         </ol>
     );
 }

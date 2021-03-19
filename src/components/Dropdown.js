@@ -8,7 +8,7 @@ const Dropdown = ({ title, items }) => {
     
     const toggle = () => setOpen(!open); 
     
-    Dropdown.handleClickOutside = () => setOpen(false);
+//    Dropdown.handleClickOutside = () => setOpen(false);
 
     const handleOnClick = (item) => {
         setSelection([item])

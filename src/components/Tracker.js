@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 
-import Dropdown from './Dropdown';
+//import Dropdown from './Dropdown';
 import Heading from './Heading';
 import WorkoutList from './WorkoutList';
 import ExerciseInput from './ExerciseInput';
@@ -25,17 +25,21 @@ const Tracker = () => {
         }
     };
 
+    const handleExerciseRemoval = (exercise) => {
+        setExercises(exercises.slice().filter((i) => i !== exercise));
+    }
+
     return (
         <body>
             <Heading /><br/>
             <div id="list-container">
-                <ExerciseInput handleSubmit = {(exercise) => {
+                <p>Add an exercise:</p>
+                <ExerciseInput 
+                    handleSubmit = {(exercise) => {
                     setExercises(exercises.concat(exercise));
                 }} />
-                <WorkoutList exercises={exercises} 
-                    handleClick={(exercise) => {
-                    setExercises(exercises.slice().filter((i) => i !== exercise));
-                }} />
+                <WorkoutList exercises={exercises} />
+                <button type="button" onClick={handleExerciseRemoval}>Remove</button>
             </div>
 
             <Link to='/finish'>
@@ -50,7 +54,8 @@ const Tracker = () => {
 
 export default Tracker;
 
-{/* <button
+{/*             
+    <button
 onClick={handleAddExercise}
 >Add exercise
 </button>
