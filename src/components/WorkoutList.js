@@ -7,14 +7,14 @@ const WorkoutList = props => {
         <ExerciseItem
             key={i}
             name={exercise}
-            // handleClick={props.handleClick}
+            handleClick={props.handleClick}
         />
     ))
 
     return(
         <ol>
-            <li>{exercises}
-                
+            <li>
+                {exercises}
             </li>
         </ol>
     );

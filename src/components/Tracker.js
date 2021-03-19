@@ -38,8 +38,9 @@ const Tracker = () => {
                     handleSubmit = {(exercise) => {
                     setExercises(exercises.concat(exercise));
                 }} />
-                <WorkoutList exercises={exercises} />
-                <button type="button" onClick={handleExerciseRemoval}>Remove</button>
+                <WorkoutList exercises={exercises} handleClick={(exercise) => {
+                setExercises(exercises.slice().filter((i) => i !== exercise));
+                }}/>
             </div>
 
             <Link to='/finish'>

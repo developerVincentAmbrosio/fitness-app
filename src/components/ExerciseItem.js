@@ -7,17 +7,17 @@ const ExerciseItem = props => {
     const [sets, setSets] = useState('');
     const [reps, setReps] = useState('');
     const [previousWeight, setPreviousWeight] = useState('');
-    const [weight, setWeight] = useState('');
+    const [weight, setWeight] = useState([]);
 
     return(
-            <li 
+            <li
                 onClick={()=> props.handleClick(props.name)}>
                 {props.name}
                 <p>Weight used:</p>
                 <ExerciseInput 
                     handleSubmit = {(weight) => {
-                    setWeight();
-                }} />
+                    setWeight(weight.concat(weight));
+                    }}  />
             </li>
     );
 }
