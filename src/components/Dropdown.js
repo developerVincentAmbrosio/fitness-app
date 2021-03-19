@@ -9,15 +9,20 @@ const Dropdown = () => {
 
     const activateDropDown = () => setIsActive(!isActive);
 
+    let Numbers = [];
+    for(let i = 1; i < 21; i++) {
+        Numbers.push(i);
+    }
+
+
     return(
         <main className="menu-container">
             <button onClick={activateDropDown} className="menu-trigger">Sets</button>
             <div ref={dropdownRef} className={`menu ${isActive ? 'active' : 'inactive'}`}>
                 <ul>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
+                    {Numbers.map(function(item) {
+                        return<li>{item.number}</li>
+                    })}
                 </ul>
             </div>
         </main>
