@@ -1,33 +1,54 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState } from 'react';
 import '../styles/Dropdown.css';
+//import onClickOutside from 'react-onclickoutside';
 
-import { useDetectOutsideClick } from './useDetectOutsideClick';
+const Dropdown = ({ title, items }) => {
+    const [open, setOpen] = useState(false);
+    const [selection, setSelection] = useState([]);
+    
+    const toggle = () => setOpen(!open); 
+    
+    Dropdown.handleClickOutside = () => setOpen(false);
 
-const Dropdown = () => {
-    const dropdownRef = useRef(null);
-    const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
-
-    const activateDropDown = () => setIsActive(!isActive);
-
-    let Numbers = [];
-    for(let i = 1; i < 5; i++) {
-        Numbers.push(i);
-    }
-
+    const handleOnClick = (item) => {
+        setSelection([item])
+    };
 
     return(
-        <main className="menu-container">
-            <button onClick={activateDropDown} className="menu-trigger">Sets</button>
-            <div ref={dropdownRef} className={`menu ${isActive ? 'active' : 'inactive'}`}>
-                <ul>
-                    {Numbers.map(function(item) {
-                        return<li>{item.number}</li>
-                    })}
-                </ul>
+        <div className="dd-container">
+            <div
+                tabIndex={0}
+                className="dd-header"
+                role="button"
+                onKeyPress={() => toggle(!open)}
+                onClick={() => toggle(!open)}
+            >
+                <div className="dd-header-title">
+                    <p className="dd-header-title-bold">{title}</p>
+                </div>
+                <div className="dd-header-action">
+                    <p>{open ? 'Close' : 'Open'}</p>
+                </div> 
             </div>
-        </main>
-
-    );   
+            {open && (
+            <ul className="dd-list">
+            {items.map(item => (
+                <li className="dd-list-item">
+                    <button type="button" onClick={() => handleOnClick(item)}>
+                        <span>{item }</span>
+                    </button>
+                </li>
+            ))}
+            </ul>
+            )}
+        </div>
+    );
 }
+
+// const clickOutsideConfig = {
+//     handleClickOutside: ()=> Dropdown.handleClickOutside,
+// };
+
+// export default onClickOutside(Dropdown, clickOutsideConfig);
 
 export default Dropdown;
