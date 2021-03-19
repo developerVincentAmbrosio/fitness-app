@@ -1,24 +1,23 @@
 import React from 'react';
-import Exercise from './Exercise';
+import ExerciseItem from './ExerciseItem';
 
-const Workout = (props) => {
+const WorkoutList = props => {
+    const exercises = props.exercises.map((exercise, i) => (
+        <ExerciseItem
+            key={i}
+            name={exercise}
+            handleClick={props.handleClick}
+        />
+    ))
 
-    // const exercises = props.exercises.map((exercise, i) => (
-    //     <Exercise
-    //      key={i}
-    //      name={exercise}
-    //     />
-    // ))
-
-    return (
-        <ul>
-            <li>exercise</li>
-            {/* <li>{exercises}</li> */}
-        </ul>
+    return(
+        <ol>
+            <li>{exercises}</li>
+        </ol>
     );
 }
 
-export default Workout;
+export default WorkoutList;
 
         {/* 
             const [exercises, setExercises] = useState(['bench press']);
