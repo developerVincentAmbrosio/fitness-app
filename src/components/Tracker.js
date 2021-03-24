@@ -6,15 +6,14 @@ import Heading from './Heading';
 import WorkoutList from './WorkoutList';
 import ExerciseInput from './ExerciseInput';
 import Nav from './Nav';
+import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 
 const Tracker = () => {
 
-    const [startWorkout, setStartWorkout] = useState(false);
+    const [exercises, setExercises] = useState('');
+
+    // const [startWorkout, setStartWorkout] = useState(false);
     const [imperial, setImperial] = useState(true);
-    const [exercises, setExercises] = useState ([]);
-    
-
-
 
     const handleLbsToKilos = () => {
         if (imperial === true) {
@@ -24,12 +23,15 @@ const Tracker = () => {
         }
     };
 
-    const handleAddExercise = (item) => {
+    const handleAddExercise = (item, event) => {
+        event.preventDefault();
         setExercises(exercises.concat(item));
     }
 
-    const handleRemoveExercise = (item) => {
+    const handleRemoveExercise = (item, event) => {
+        event.preventDefault();
         setExercises(exercises.filter((i) => i !== item));
+        alert('remove clicked')
     }
 
 

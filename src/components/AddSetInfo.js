@@ -1,44 +1,56 @@
 import React, { useState } from 'react';
 import ExerciseInput from './ExerciseInput';
 
-const AddSetInfo = () => {
-    const [sets, setSets] = useState(1);
+const AddSetInfo = (props) => {
+    const [sets, setSets] = useState(0);
     const [reps, setReps] = useState([]);
     const [weight, setWeight] = useState([]);
     const [startExercise, setStartExercise] = useState(false);
 
+    // const items = item.map((items, i) => ({
+    //      `
+    //     <li>${setsDisplay()} &nbsp;&nbsp; Reps: ${reps} &nbsp;&nbsp; Weight: ${previous}</li>`
+
+    // }))
+
+    // const chart = () => {
+    //     return `
+    //     <li>${setsDisplay()} &nbsp;&nbsp; Reps: ${reps} &nbsp;&nbsp; Weight: ${previous}</li>`
+    // }
+
     const previous = weight[weight.length -1];
 
-    const handleSetsCounter = (event) => {
+    const handleAddSets = (event) => {
         event.preventDefault()
+        setStartExercise(true)
+        setsCounter()
+    };
+
+    const setsCounter = () => {
         setSets(sets + 1)
         console.log(sets)
     };
 
-    const beginExercise = () => {
-        setStartExercise(true);
-    }
+    const setsDisplay = () => {
+        return (startExercise ? "Set number: " + sets :  "")
+    };
 
     const handleAddReps = (item) => {
         setReps(reps.concat(item));
-        // console.log('reps: ' + reps)
     };
 
     const handleAddWeight = (item) => {
         setWeight(weight.concat(item));
     };
 
-    const setsDisplay = () =>
-        'Set number: ' + sets;
-
     return(
-        <>
-          <button onClick={handleSetsCounter}>Add Set</button>
-          {/* <ExerciseInput handleSubmit={handleAddReps}/>
-          Add Weight: <ExerciseInput handleSubmit={handleAddWeight}/>
-          Previous: {previous} */}
-        
-        </>
+        <ul>
+            AddSetInfo
+            {/* {items} */}
+          {/* <button onClick={handleAddSets}>Add Set</button> <br/>
+          Add Reps: <ExerciseInput handleSubmit={handleAddReps}/>
+          Add Weight: <ExerciseInput title='Add Weight' handleSubmit={handleAddWeight}/> */}
+        </ul>
     );
 }
 

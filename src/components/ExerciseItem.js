@@ -1,23 +1,17 @@
-import React, {useState} from 'react';
+import React from 'react';
 import AddSetInfo from './AddSetInfo';
-import ExerciseInput from './ExerciseInput';
 //import Dropdown from './Dropdown';
 
 const ExerciseItem = props => {
 
-    // const handleRemoveExercise = (item) => {
-    //     props.onRemoveItem
-    // };
-
 
     return(
             <li>
-                {props.name}
-                <button type="button"
-                   // onClick={handleRemoveExercise}
-                >Remove
-                </button>
-                <AddSetInfo />
+                {props.name}&nbsp;&nbsp;
+                {/* <AddSetInfo /> */}
+                <br/>
+                <button>Remove</button>
+                
             </li>
     );
 }
