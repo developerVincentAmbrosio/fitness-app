@@ -7,7 +7,6 @@ const WorkoutList = props => {
         <ExerciseItem
             key={i}
             name={item}
-            handleClick={props.handleClick}
             onRemoveItem={props.onRemoveItem}
         />
     ))

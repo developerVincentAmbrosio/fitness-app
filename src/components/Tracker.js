@@ -10,7 +10,7 @@ import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 
 const Tracker = () => {
 
-    const [exercises, setExercises] = useState('');
+    const [exercises, setExercises] = useState([]);
 
     // const [startWorkout, setStartWorkout] = useState(false);
     const [imperial, setImperial] = useState(true);
@@ -26,13 +26,13 @@ const Tracker = () => {
     const handleAddExercise = (item, event) => {
         event.preventDefault();
         setExercises(exercises.concat(item));
-    }
+    };
 
     const handleRemoveExercise = (item, event) => {
         event.preventDefault();
         setExercises(exercises.filter((i) => i !== item));
-        alert('remove clicked')
-    }
+
+    };
 
 
 {/* <WorkoutList exercises={exercises} handleClick={(exercise) => {
@@ -63,10 +63,6 @@ const Tracker = () => {
 export default Tracker;
 
 {/*             
-    <button
-onClick={handleAddExercise}
->Add exercise
-</button>
 
 <button
 onClick={handleLbsToKilos}>
