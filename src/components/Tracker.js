@@ -8,14 +8,13 @@ import ExerciseInput from './ExerciseInput';
 import Nav from './Nav';
 
 const Tracker = () => {
+
     const [startWorkout, setStartWorkout] = useState(false);
     const [imperial, setImperial] = useState(true);
     const [exercises, setExercises] = useState ([]);
     
 
-    const handleAddExercise = () => {
-        setStartWorkout(true)
-    };
+
 
     const handleLbsToKilos = () => {
         if (imperial === true) {
@@ -25,22 +24,28 @@ const Tracker = () => {
         }
     };
 
-    const handleExerciseRemoval = (exercise) => {
-        setExercises(exercises.slice().filter((i) => i !== exercise));
+    const handleAddExercise = (item) => {
+        setExercises(exercises.concat(item));
     }
+
+    const handleRemoveExercise = (item) => {
+        setExercises(exercises.filter((i) => i !== item));
+    }
+
+
+{/* <WorkoutList exercises={exercises} handleClick={(exercise) => {
+    setExercises(exercises.slice().filter((i) => i !== exercise));
+    }}/> */}
 
     return (
         <body>
             <Heading /><br/>
             <div id="list-container">
                 <p>Add an exercise:</p>
-                <ExerciseInput 
-                    handleSubmit = {(exercise) => {
-                    setExercises(exercises.concat(exercise));
-                }} />
-                <WorkoutList exercises={exercises} handleClick={(exercise) => {
-                setExercises(exercises.slice().filter((i) => i !== exercise));
-                }}/>
+                <ExerciseInput handleSubmit={handleAddExercise}/>
+                <WorkoutList items={exercises}
+                    onRemoveItem={handleRemoveExercise}
+                />
             </div>
 
             <Link to='/finish'>

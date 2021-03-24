@@ -1,35 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ExerciseItem from './ExerciseItem';
 
 const WorkoutList = props => {
 
-    const exercises = props.exercises.map((exercise, i) => (
+    const items = props.items.map((item, i) => (
         <ExerciseItem
             key={i}
-            name={exercise}
+            name={item}
             handleClick={props.handleClick}
+            onRemoveItem={props.onRemoveItem}
         />
     ))
 
     return(
         <ol>
-            <li>
-                {exercises}
-            </li>
+            {items}
         </ol>
     );
 }
 
 export default WorkoutList;
-
-        {/* 
-            const [exercises, setExercises] = useState(['bench press']);
-
-            <secton>
-                    <Workout exercises={exercises} />
-                    <Exercise handleSubmit={(exercise) => {
-                        setExercises(exercises.concat(exercise));
-                        }}
-                    /> 
-            </secton>
-        */}

@@ -1,23 +1,23 @@
 import React, {useState} from 'react';
+import AddSetInfo from './AddSetInfo';
 import ExerciseInput from './ExerciseInput';
 //import Dropdown from './Dropdown';
 
 const ExerciseItem = props => {
-//    const [items] = useState(['1','2','3','4']); //for dropdown
-    const [sets, setSets] = useState('');
-    const [reps, setReps] = useState('');
-    const [previousWeight, setPreviousWeight] = useState('');
-    const [weight, setWeight] = useState([]);
+
+    // const handleRemoveExercise = (item) => {
+    //     props.onRemoveItem
+    // };
+
 
     return(
-            <li
-                onClick={()=> props.handleClick(props.name)}>
+            <li>
                 {props.name}
-                <p>Weight used:</p>
-                <ExerciseInput 
-                    handleSubmit = {(weight) => {
-                    setWeight(weight.concat(weight));
-                    }}  />
+                <button type="button"
+                   // onClick={handleRemoveExercise}
+                >Remove
+                </button>
+                <AddSetInfo />
             </li>
     );
 }

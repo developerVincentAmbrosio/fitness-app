@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const ExerciseInput = props => {
     const [value, setValue] = useState('');
+    const title = '';
     return (
         <form 
             onSubmit = {event => {
