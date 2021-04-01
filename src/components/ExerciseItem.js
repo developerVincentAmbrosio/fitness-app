@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AddSetInfo from './AddSetInfo';
+//import AddSetInfo from './AddSetInfo';
 //import Dropdown from './Dropdown';
 
 const ExerciseItem = props => {
@@ -25,9 +25,9 @@ const ExerciseItem = props => {
         console.log(sets)
     };
 
-    const setsDisplay = () => {
-        return (startExercise ? <AddSetInfo /> : '')
-    };
+    // const setsDisplay = () => {
+    //     return (startExercise ? <AddSetInfo /> : '')
+    // };
 
     return(
             <li>
@@ -35,7 +35,7 @@ const ExerciseItem = props => {
                 <button onClick={handleAddSets}>Add Set</button> &nbsp;&nbsp;
                 <button>Remove</button>
                 <ul>
-                    {setsDisplay()}
+                    list{/* //{setsDisplay()} */}
                 </ul>   
             </li>
     );
