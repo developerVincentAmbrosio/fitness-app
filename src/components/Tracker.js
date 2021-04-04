@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 //import Dropdown from './Dropdown';
 import Heading from './Heading';
-import WorkoutList from './WorkoutList';
+//import WorkoutList from './WorkoutList';
 import ExerciseInput from './ExerciseInput';
 import Nav from './Nav';
 import { unstable_renderSubtreeIntoContainer } from 'react-dom';
@@ -45,9 +45,9 @@ const Tracker = () => {
             <div id="list-container">
                 <p>Add an exercise:</p>
                 <ExerciseInput handleSubmit={handleAddExercise}/>
-                <WorkoutList items={exercises}
+                {/* <WorkoutList items={exercises}
                     onRemoveItem={handleRemoveExercise}
-                />
+                /> */}
             </div>
 
             <Link to='/finish'>
