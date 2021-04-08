@@ -1,5 +1,10 @@
 body {
     background-color: #000;
+    margin: 20px;
+}
+
+main {
+    text-align: center;
 }
 
 h1, legend, form, label {
@@ -8,6 +13,33 @@ h1, legend, form, label {
     text-align: center;
 }
 
-/* button {
-    ;
-} */
+h1 {
+    font-size: 48px;
+}
+
+legend {
+    font-size: 32px;
+    font-style: oblique;
+}
+
+label {
+    font-size: 20px;
+}
+
+hr {
+    border: none;
+    text-decoration: none;
+    height: 10px;
+}
+
+
+
+button {
+    color: #000;
+    background-color: #fff;
+    font-size: 24px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+}
