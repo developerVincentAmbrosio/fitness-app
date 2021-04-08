@@ -51,16 +51,16 @@ import '../styles/Landing.css';
                            Please try entering your information again`;
 
     return (
-        <body>
+        <body id="landing-bkgd">
             <heading>
                 <h1>Welcome to fitness app!</h1>
             </heading>
-            <main>
+            <main id="landing-bkgd">
                 <div>{validate ? '' : validateError }</div>
                 <form>
                     <legend>An app that tracks your workouts, sets, reps and notes</legend>
                     <hr/>
-                    <label for="user">User name: </label>
+                    <label for="user">User name:&nbsp;</label>
                     <input 
                         type="text"
                         name="email"
@@ -68,7 +68,7 @@ import '../styles/Landing.css';
                         // onChange={handleChange}
                     /> <hr/>
 
-                    <label for="pass">Password: </label>
+                    <label for="pass">Password:&nbsp;</label>
                     <input 
                         type="text"
                         name="user_pass"

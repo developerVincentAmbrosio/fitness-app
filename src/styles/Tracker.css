@@ -1,12 +1,5 @@
 
-body {
-    background-color: #000;
-    margin: 20px;
-}
 
-main {
-    text-align: center;
-}
 
 h1, legend, form, label {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

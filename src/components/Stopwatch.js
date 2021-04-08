@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import '../styles/Stopwatch.css'
 
 const Stopwatch = () => {
     const [stopwatch, setStopwatch] = useState({ms:0, s:0, m:0, h:0}); 
@@ -53,7 +54,7 @@ const Stopwatch = () => {
     }
 
     return(
-        <>
+        <main>
             {displayHours()}&nbsp;&nbsp;
             <span>{(stopwatch.m >= 10) ? stopwatch.m : '0'+ stopwatch.m}</span>&nbsp;:&nbsp;
             <span>{(stopwatch.s >= 10) ? stopwatch.s : '0'+ stopwatch.s}</span>&nbsp;:&nbsp;
@@ -64,7 +65,7 @@ const Stopwatch = () => {
             <button
                 onClick={resetStopwatch}>Reset
             </button>
-        </>
+        </main>
     );
 }
 
