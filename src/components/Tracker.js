@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/Tracker.css';
 
 //import Dropdown from './Dropdown';
 import Heading from './Heading';
@@ -42,6 +43,7 @@ const Tracker = () => {
     return (
         <body>
             <Heading /><br/>
+            <hr/>
             <div id="list-container">
                 <p>Add an exercise:</p>
                 <ExerciseInput handleSubmit={handleAddExercise}/>
@@ -49,7 +51,7 @@ const Tracker = () => {
                     onRemoveItem={handleRemoveExercise}
                 /> */}
             </div>
-
+            <hr/>
             <Link to='/finish'>
                 <button>Finish workout</button>
             </Link>

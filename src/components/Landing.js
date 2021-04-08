@@ -59,15 +59,16 @@ import '../styles/Landing.css';
                 <div>{validate ? '' : validateError }</div>
                 <form>
                     <legend>An app that tracks your workouts, sets, reps and notes</legend>
-                    <label for="user">User name:</label>
+                    <hr/>
+                    <label for="user">User name: </label>
                     <input 
                         type="text"
                         name="email"
                         value={state.email}
                         // onChange={handleChange}
-                    /> <br/>
+                    /> <hr/>
 
-                    <label for="pass">Password:</label>
+                    <label for="pass">Password: </label>
                     <input 
                         type="text"
                         name="user_pass"
@@ -75,6 +76,7 @@ import '../styles/Landing.css';
                         // onChange={handleChange}
                     />
                 </form>
+                <hr/>
                 <Link to='/tracker'>
                     <button onSubmit={handleChange}>Start crushing it!</button>
                 </Link>
