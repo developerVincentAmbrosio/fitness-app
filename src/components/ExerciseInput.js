@@ -2,71 +2,60 @@ import React, { useState } from 'react';
 import ListOfExercises from './ListOfExercises';
 
 const ExerciseInput = () => {
-    // const [value, setValue] = useState('');
+    const [state, setState] = useState({
+        exercise_name: [],
+        set_number: [],
+        weight_used: [],
+        num_of_reps: []
+    });
 
-    const [set_number, setSet_number] = useState('');
-    const [weight_used, setWeight_used] = useState('');
-    const [num_of_reps, set_Num_of_reps] = useState('');
-
-    const handleSetNumberSubmit = event => {
-        event.preventDefault();
-        setSet_number(event.target.value)
-        console.log('set: ' + event.target.value)
-    }
-
-    const handleNumOfRepsSubmit = event => {
-        event.preventDefault();
-        set_Num_of_reps(event.target.value)
-        console.log('reps: ' + event.target.value)
-    }
-
-    const handleSetWeightUsed = event => {
-        event.preventDefault();
-        setWeight_used(event.target.value)
-        console.log('weight: ' + event.target.value)
-    }
-
-    const handleAddAnotherSet = event => {
-        event.preventDefault();
-        setSet_number(0)
-        setWeight_used(0)
-        set_Num_of_reps(0)
+    const handleChange = event => {
+        event.preventDefault()
+        const value = event.target.value
+        setState({
+            ...state,
+            [event.target.name]: value
+        });
     }
 
     return (
         <form >
-            <label htmlFor="Exercise">Add an exercise </label>
-                <select name="exercises">
+            <label htmlFor="exercise_name">Add an exercise: </label>
+                <select
+                    name="exercise_name"
+                    value={state.exercise_name}
+                    onChange={handleChange}
+                >
                     <ListOfExercises />
                 </select> <br/>
 
-            <label htmlFor="Set">Set:</label>
+            <label textarea="set_number">Set: </label>
             <input 
                 type="text"
-                name="Set"
-                value={set_number}
-                onChange={handleSetNumberSubmit}
-            /><br/>
+                name="set_number"
+                value={state.set_number}
+                onChange={handleChange}
+            /> <br/>
 
-            <label htmlFor="Weight">Weight:</label>
+            <label textarea="weight_used">Weight: </label>
             <input 
                 type="text" 
-                name="Weight" 
-                value={weight_used}
-                onChange={handleSetWeightUsed}
-            /><br/>
+                name="weight_used" 
+                value={state.weight_used}
+                onChange={handleChange}
+            /> <br/>
 
-            <label for="Reps">Reps:</label>
+            <label textarea="num_of_reps">Reps:</label>
             <input 
                 type="text" 
-                name="Reps"
-                value={num_of_reps}
-                onChange={handleNumOfRepsSubmit}
-            /><br/>
+                name="num_of_reps"
+                value={state.num_of_reps}
+                onChange={handleChange}
+            /> <br/>
 
             <button
-                onClick={handleAddAnotherSet}
-            >Add another set</button>
+                //onClick={handleAddSet}
+            >{state.set_number.length < 1 ? "Add set" : "Add another set"}</button>
 
             {/* <button onClick={() => handleSubmit}>Add</button> */}
         </form>
@@ -74,10 +63,3 @@ const ExerciseInput = () => {
 }
 
 export default ExerciseInput;
-
-            {/* <input type="text" value={value}
-            onChange={event => setValue(event.target.value)}
-            /> */}
-
-            {/* <label htmlFor="Previous">Previous:</label>
-            <input type="text" name="Previous" value="Previous" /><br/> */}

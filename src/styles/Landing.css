@@ -1,0 +1,13 @@
+body {
+    background-color: #000;
+}
+
+h1, legend, form, label {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #fff;
+    text-align: center;
+}
+
+/* button {
+    ;
+} */
